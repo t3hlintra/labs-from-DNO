@@ -49,8 +49,8 @@ bool Generator::checkString(QString str)
 
 Generator::Node *Generator::makeNode(QString *str, int index)
 {
-    int pos=index+2;//позиция встроке
-    Node *cur=new Node;//содаем новый корень для оператора
+    int pos=index+2;//позиция в строке
+    Node *cur=new Node;//создаем новый корень для оператора
     cur->info=str->operator [](index);
     cur->isOperator=true;
     if(str->operator [](pos)=='-' || str->operator [](pos)=='+' || str->operator [](pos)=='*' || str->operator [](pos)=='=')//если левый операнд-оператор то вызываем рекурсию
@@ -102,7 +102,7 @@ Generator::Node::~Node()
 
 int Generator::searchRightOperand(QString *str, int index)//идея в том , что за оператором должна быть пара скобок, и надо найти последюю закрывающую
 {
-    int bracCount=1;//колво открывающих скобо, 1 т к есть точно один оператор
+    int bracCount=1;//кол-во открывающих скобо, 1 т к есть точно один оператор
     int i=index+2;
     while(bracCount>0)
     {
@@ -187,7 +187,7 @@ void Generator::treeCodeGeneration(QStringList *list, Generator::Node *cur)
                     }
                     list->operator +=(str);
                 }
-                else//есди олдин из потомков не оператор
+                else//есди один из потомков не оператор
                 {
                     if(cur->leftChild->isOperator)//если левый потомок-оператор
                     {
@@ -233,7 +233,7 @@ void Generator::treeCodeGeneration(QStringList *list, Generator::Node *cur)
                             else
                                 str="mul eax, ";
                             cur->leftChild->info.toInt(&flag, 10);
-                            if(flag)//если правый оператр-число
+                            if(flag)//если правый оператор-число
                                 str+=cur->leftChild->info;
                             else
                             {
