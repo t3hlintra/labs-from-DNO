@@ -182,7 +182,7 @@ void Generator::treeCodeGeneration(QStringList *list, Generator::Node *cur)
                         str+=cur->rightChild->info;
                     else
                     {
-                        list->operator +=(QString::fromLocal8Bit("move edx, ")+cur->rightChild->info);
+                        list->operator +=(QString::fromLocal8Bit("mov edx, ")+cur->rightChild->info);
                         str+="edx";
                     }
                     list->operator +=(str);
@@ -211,7 +211,7 @@ void Generator::treeCodeGeneration(QStringList *list, Generator::Node *cur)
                             str+=cur->rightChild->info;
                         else
                         {
-                            list->operator +=(QString::fromLocal8Bit("move edx, ")+cur->rightChild->info);
+                            list->operator +=(QString::fromLocal8Bit("mov edx, ")+cur->rightChild->info);
                             str+="edx";
                         }
                         list->operator +=(str);
@@ -237,7 +237,7 @@ void Generator::treeCodeGeneration(QStringList *list, Generator::Node *cur)
                                 str+=cur->leftChild->info;
                             else
                             {
-                                list->operator +=(QString::fromLocal8Bit("move edx, ")+cur->leftChild->info);
+                                list->operator +=(QString::fromLocal8Bit("mov edx, ")+cur->leftChild->info);
                                 str+="edx";
                             }
                             list->operator +=(str);
