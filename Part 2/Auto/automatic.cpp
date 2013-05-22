@@ -28,37 +28,5 @@ bool Automatic::Identify(QString str)
     }
     if(state==1)
         result=true;
-//    for(int i=0; i<str.length() && state!=1; i++)
-//        switch (state)
-//        {
-//        case 0:
-//            if(str[i]=='1')
-//                state=1;
-//            break;
-//        case 1:
-//            state=1;
-//            break;
-//        }
-//    if(state==1)
-//        result=true;
-    /*другие варианты реализации*/
-//    int i;
-//    for(i=0; i<str.length() && str[i]!=1; i++);
-//    if(i<str.length())
-//        result=true;
-    /**/
-//    for(int i=0; i<str.length(); i++)
-//        switch (state)
-//        {
-//        case 0:
-//            if(str[i]=='1')
-//                state=1;
-//            break;
-//        case 1:
-//            state=1;
-//            break;
-//        }
-//    if(state==1)
-//        result=true;
     return result;
 }
